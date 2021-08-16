@@ -1,0 +1,11 @@
+namePrefix: dev-
+namespace: dev-sandbox
+
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- deployment.yaml
+- service.yaml
+- certificate.yaml
+- ingress.yaml
