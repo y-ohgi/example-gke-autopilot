@@ -1,11 +1,11 @@
-# apiVersion: v1
-# kind: ServiceAccount
-# metadata:
-#   name: voicheer
-#   annotations:
-#     iam.gke.io/gcp-service-account: api-voicheer@api-voicheer.iam.gserviceaccount.com
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sandbox
+  annotations:
+    iam.gke.io/gcp-service-account: dev-sandbox@gke-autopilot-blog.iam.gserviceaccount.com
 
-# ---
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,3 +13,9 @@ metadata:
 
 spec:
   replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sandbox
+    spec:
+      serviceAccountName: dev-sandbox
